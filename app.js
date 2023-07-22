@@ -10,9 +10,9 @@ const routes = require('./routes/index');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const { PORT = 3000 } = process.env;
-const { DB_ADDRESS } = process.env;
+// const { DB_ADDRESS } = process.env;
 
-mongoose.connect(DB_ADDRESS)
+mongoose.connect('mongodb://127.0.0.1:27017/bitfilmsdb')
   .then(() => {
     console.log('connected to db');
   });
