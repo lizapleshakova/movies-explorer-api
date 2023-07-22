@@ -9,10 +9,9 @@ const cors = require('cors');
 const routes = require('./routes/index');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
-const { PORT = 3000 } = process.env;
-// const { DB_ADDRESS } = process.env;
+const { PORT = 3000, DB_ADRESS = 'mongodb://127.0.0.1:27017/bitfilmsdb' } = process.env;
 
-mongoose.connect('mongodb://127.0.0.1:27017/bitfilmsdb')
+mongoose.connect(DB_ADRESS)
   .then(() => {
     console.log('connected to db');
   });

@@ -11,9 +11,9 @@ const NotFoundError = require('../errors/notFoundError');
 const BadRequestError = require('../errors/badRequestError');
 const ConflicktError = require('../errors/conflictErrror');
 
-const getUsers = (req, res, next) => {
+const getUser = (req, res, next) => {
   User
-    .find({})
+    .findById(req.user._id)
     .then((user) => res.send(user))
     .catch(next);
 };
@@ -81,7 +81,7 @@ const updateProfile = (req, res, next) => {
 };
 
 module.exports = {
-  getUsers,
+  getUser,
   createUser,
   updateProfile,
   login,
